@@ -17,90 +17,41 @@ printBoard(theBoard)
 
 
 
-def check_computer():
-
-    if theBoard[0]=="×" and theBoard[1]=="×" and theBoard[2]=="×":
-        print("You lose...")
-        return False
-
-    elif theBoard[3]=="×" and theBoard[4]=="×" and theBoard[5]=="×":
-        print("You lose...")
-        return False
-
-    elif theBoard[6]=="×" and theBoard[7]=="×" and theBoard[8]=="×":
-        print("You lose...")
-        return False
-
-    elif theBoard[0] == "×" and theBoard[3] == "×" and theBoard[6] == "×":
-        print("You lose...")
-        return False
-
-    elif theBoard[1] == "×" and theBoard[4] == "×" and theBoard[7] == "×":
-        print("You lose...")
-        return False
-
-    elif theBoard[2] == "×" and theBoard[5] == "×" and theBoard[8] == "×":
-        print("You lose...")
-        return False
-
-    elif theBoard[0] == "×" and theBoard[4] == "×" and theBoard[8] == "×":
-        print("You lose...")
-        return False
-
-    elif theBoard[2] == "×" and theBoard[4] == "×" and theBoard[6] == "×":
-        print("You lose...")
-        return False
-
-    elif theBoard[3] == "×" and theBoard[4] == "×" and theBoard[5] == "×":
-        print("You lose...")
-        return False
-
-    elif ALL_SPOTS == []:
+def check_result():
+    if ALL_SPOTS == []:
         print("It's draw.haha")
         return False
 
+    elif(
+            theBoard[0] == theBoard[1] == theBoard[2] == "×" or
+            theBoard[3] == theBoard[4] == theBoard[5] == "×" or
+            theBoard[6] == theBoard[7] == theBoard[8] == "×" or
+            theBoard[0] == theBoard[3] == theBoard[6] == "×" or
+            theBoard[1] == theBoard[4] == theBoard[7] == "×" or
+            theBoard[2] == theBoard[5] == theBoard[8] == "×" or
+            theBoard[0] == theBoard[4] == theBoard[8] == "×" or
+            theBoard[2] == theBoard[4] == theBoard[6] == "×" or
+            theBoard[3] == theBoard[4] == theBoard[5] == "×"
+    ):
+        print("You lose...")
+        return False
 
-def check_user():
-    if theBoard[0] == "○" and theBoard[1] == "○" and theBoard[2] == "○":
+    elif (
+            theBoard[0] == theBoard[1] == theBoard[2] == "○" or
+            theBoard[3] == theBoard[4] == theBoard[5] == "○" or
+            theBoard[6] == theBoard[7] == theBoard[8] == "○" or
+            theBoard[0] == theBoard[3] == theBoard[6] == "○" or
+            theBoard[1] == theBoard[4] == theBoard[7] == "○" or
+            theBoard[2] == theBoard[5] == theBoard[8] == "○" or
+            theBoard[0] == theBoard[4] == theBoard[8] == "○" or
+            theBoard[2] == theBoard[4] == theBoard[6] == "○" or
+            theBoard[3] == theBoard[4] == theBoard[5] == "○"
+    ):
         print("You win!")
         return False
 
-    elif theBoard[3] == "○" and theBoard[4] == "○" and theBoard[5] == "○":
-        print("You win!")
-        return False
-
-    elif theBoard[6] == "○" and theBoard[7] == "○" and theBoard[8] == "○":
-        print("You win!")
-        return False
-
-    elif theBoard[0] == "○" and theBoard[3] == "○" and theBoard[6] == "○":
-        print("You win!")
-        return False
-
-    elif theBoard[1] == "○" and theBoard[4] == "○" and theBoard[7] == "○":
-        print("You win!")
-        return False
-
-    elif theBoard[2] == "○" and theBoard[5] == "○" and theBoard[8] == "○":
-        print("You win!")
-        return False
-
-    elif theBoard[0] == "○" and theBoard[4] == "○" and theBoard[8] == "○":
-        print("You win!")
-        return False
-
-    elif theBoard[2] == "○" and theBoard[4] == "○" and theBoard[6] == "○":
-        print("You win!")
-        return False
-
-    elif theBoard[3] == "○" and theBoard[4] == "○" and theBoard[5] == "○":
-        print("You win!")
-        return False
-
-    elif ALL_SPOTS == []:
-        print("It's draw.haha")
-        return False
-
+    else:
+        pass
 
 
 game_is_on = True
@@ -117,9 +68,19 @@ while game_is_on:
 
     printBoard(theBoard)
 
-    if check_computer() == False:
-        game_is_on = False
+    if check_result() == False:
+        continue_op = input("\nDo you want to try again?")
+        if continue_op.lower() == "yes":
+            theBoard = {0: '0', 1: '1', 2: '2',
+                        3: '3', 4: '4', 5: '5',
+                        6: '6', 7: '7', 8: '8'}
 
+            ALL_SPOTS = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+            continue
+        else:
+            game_is_on = False
+
+    # Action of User
     else:
         user_choice = int(input("\nIt is your turn.\nWhich left spot do you want to put your ○ ? Answer the number.\n"))
 
@@ -131,5 +92,18 @@ while game_is_on:
 
         printBoard(theBoard)
 
-        if check_user() == False:
-            game_is_on = False
+        if check_result() == False:
+            continue_op = input("\nDo you want to try again?")
+            if continue_op.lower() == "yes":
+                theBoard = {0: '0', 1: '1', 2: '2',
+                            3: '3', 4: '4', 5: '5',
+                            6: '6', 7: '7', 8: '8'}
+
+                ALL_SPOTS = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                continue
+            else:
+                game_is_on = False
+
+   
+   
+
