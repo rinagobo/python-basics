@@ -8,4 +8,4 @@ This is a simple typing speed test tool which can only check your typing speed b
 - conditionals
 
 ## What I have to improve
-- Make this tool able to give user a ramdom task of text from variety of choices.
+- Make this tool to be able to give user a option to do another quiz.
