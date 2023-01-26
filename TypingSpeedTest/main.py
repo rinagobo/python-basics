@@ -1,8 +1,13 @@
 from tkinter import *
+from texts import texts_dic
+import random
+
+index = random.randint(1,5)
+quiz_text = texts_dic[index]
+
 window = Tk()
 window.title("Typing Speed Test")
 window.minsize(width=700, height=500)
-# window.config(bg="#76BA99")
 
 canvas = Canvas(width=100, height=50, bg="#876445")
 timer_text = canvas.create_text(53, 30, text="0", fill="white", font=("Arial", 20, "bold"))
@@ -11,7 +16,7 @@ canvas.pack()
 mission = Label(text="Type the sentence below as fast as you can!", font=("Arial", 24, "bold"))
 mission.pack()
 
-sentence = Label(text="\nSusie works in a shoeshine shop.\n Where she shines she sits, and where she sits she shines.\n", font=("Arial", 18))
+sentence = Label(text=quiz_text, font=("Arial", 18))
 sentence.pack()
 
 typing_field = Entry(width=70)
@@ -37,10 +42,13 @@ def check_entry():
     timer_off()
     entry_text = typing_field.get()
     mission.config(text="Stop typing.")
-    if entry_text == "Susie works in a shoeshine shop. Where she shines she sits, and where she sits she shines.":
+    if entry_text == quiz_text:
         result =Label(text=f"\nYou typed correctly. Your typing speed was: {time} seconds", font=("Arial", 18, "bold"))
         result.pack()
     else:
+        print(entry_text == quiz_text)
+        print(entry_text)
+        print(quiz_text)
         result = Label(text="\nYou typed wrong. Try again.", font=("Arial", 18, "bold"))
         result.pack()
 
