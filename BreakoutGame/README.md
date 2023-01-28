@@ -12,6 +12,8 @@
 
 ## What I have to improve
 - Shorten the repeated code.
+- Show score when it's game over.
+- Give option to restart the game.
 
 ## Questions for people who are looking at my code
 - Is there any way to show all the bricks at the same time in order to make the game take less time to start?
