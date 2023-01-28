@@ -12,34 +12,11 @@ class ScoreManager(Turtle):
         self.write(self.scorestring, False, font=('Arial', 30, 'bold'))
         self.hideturtle()
 
-    def red_point(self):
+    def score_point(self, point):
         self.clear()
-        self.score += 7
+        self.score += point
         self.scorestring = "Score: %s" % self.score
         self.setposition(-60, 250)
         self.write(self.scorestring, False, font=('Arial', 30, 'bold'))
         self.hideturtle()
 
-    def orange_point(self):
-        self.clear()
-        self.score += 5
-        self.scorestring = "Score: %s" % self.score
-        self.setposition(-60, 250)
-        self.write(self.scorestring, False, font=('Arial', 30, 'bold'))
-        self.hideturtle()
-
-    def green_point(self):
-        self.clear()
-        self.score += 3
-        self.scorestring = "Score: %s" % self.score
-        self.setposition(-60, 250)
-        self.write(self.scorestring, False, font=('Arial', 30, 'bold'))
-        self.hideturtle()
-
-    def yellow_point(self):
-        self.clear()
-        self.score += 1
-        self.scorestring = "Score: %s" % self.score
-        self.setposition(-60, 250)
-        self.write(self.scorestring, False, font=('Arial', 30, 'bold'))
-        self.hideturtle()

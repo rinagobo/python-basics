@@ -16,59 +16,20 @@ class BrickManager:
         self.yellow_bricks_1 = []
         self.yellow_bricks_2 = []
 
-    def create_bricks(self):
+    def create_bricks(self, section, color, y_cor):
         for count in range(self.max_bricks):
-            self.red_bricks_1.append(Turtle('square'))
-            self.red_bricks_1[count].shapesize(stretch_wid=0.5, stretch_len=1.5)
-            self.red_bricks_1[count].penup()
-            self.red_bricks_1[count].color('red')
-            self.red_bricks_1[count].setposition(self.position[count], 150)
+            section.append(Turtle('square'))
+            section[count].shapesize(stretch_wid=0.5, stretch_len=1.5)
+            section[count].penup()
+            section[count].color(color)
+            section[count].setposition(self.position[count], y_cor)
 
-        for count in range(self.max_bricks):
-            self.red_bricks_2.append(Turtle('square'))
-            self.red_bricks_2[count].shapesize(stretch_wid=0.5, stretch_len=1.5)
-            self.red_bricks_2[count].penup()
-            self.red_bricks_2[count].color('red')
-            self.red_bricks_2[count].setposition(self.position[count], 135)
-
-        for count in range(self.max_bricks):
-            self.orange_bricks_1.append(Turtle('square'))
-            self.orange_bricks_1[count].shapesize(stretch_wid=0.5, stretch_len=1.5)
-            self.orange_bricks_1[count].penup()
-            self.orange_bricks_1[count].color('orange')
-            self.orange_bricks_1[count].setposition(self.position[count], 120)
-
-        for count in range(self.max_bricks):
-            self.orange_bricks_2.append(Turtle('square'))
-            self.orange_bricks_2[count].shapesize(stretch_wid=0.5, stretch_len=1.5)
-            self.orange_bricks_2[count].penup()
-            self.orange_bricks_2[count].color('orange')
-            self.orange_bricks_2[count].setposition(self.position[count], 105)
-
-        for count in range(self.max_bricks):
-            self.green_bricks_1.append(Turtle('square'))
-            self.green_bricks_1[count].shapesize(stretch_wid=0.5, stretch_len=1.5)
-            self.green_bricks_1[count].penup()
-            self.green_bricks_1[count].color('green')
-            self.green_bricks_1[count].setposition(self.position[count], 90)
-
-        for count in range(self.max_bricks):
-            self.green_bricks_2.append(Turtle('square'))
-            self.green_bricks_2[count].shapesize(stretch_wid=0.5, stretch_len=1.5)
-            self.green_bricks_2[count].penup()
-            self.green_bricks_2[count].color('green')
-            self.green_bricks_2[count].setposition(self.position[count], 75)
-
-        for count in range(self.max_bricks):
-            self.yellow_bricks_1.append(Turtle('square'))
-            self.yellow_bricks_1[count].shapesize(stretch_wid=0.5, stretch_len=1.5)
-            self.yellow_bricks_1[count].penup()
-            self.yellow_bricks_1[count].color('yellow')
-            self.yellow_bricks_1[count].setposition(self.position[count], 60)
-
-        for count in range(self.max_bricks):
-            self.yellow_bricks_2.append(Turtle('square'))
-            self.yellow_bricks_2[count].shapesize(stretch_wid=0.5, stretch_len=1.5)
-            self.yellow_bricks_2[count].penup()
-            self.yellow_bricks_2[count].color('yellow')
-            self.yellow_bricks_2[count].setposition(self.position[count], 45)
+    def create_all_bricks(self):
+        self.create_bricks(self.red_bricks_1, "red", 150)
+        self.create_bricks(self.red_bricks_2, "red", 135)
+        self.create_bricks(self.orange_bricks_1, "orange", 120)
+        self.create_bricks(self.orange_bricks_2, "orange", 105)
+        self.create_bricks(self.green_bricks_1, "green", 90)
+        self.create_bricks(self.green_bricks_2, "green", 75)
+        self.create_bricks(self.yellow_bricks_1, "yellow", 60)
+        self.create_bricks(self.yellow_bricks_2, "yellow", 45)

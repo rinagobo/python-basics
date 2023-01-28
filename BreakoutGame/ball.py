@@ -8,10 +8,10 @@ class Ball(Turtle):
         self.shape('circle')
         self.shapesize(0.5)
         self.penup()
-        self.goto(0,-100)
+        self.goto(0, -50)
         self.x_move = 20
         self.y_move = -10
-        self.move_speed = 0.1
+        self.speed(6)
 
     def move(self):
         new_x = self.xcor() + self.x_move
